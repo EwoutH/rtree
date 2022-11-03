@@ -28,7 +28,7 @@ jobs:
     - name: Install libspatialindex
       run: |
         pip install cmake
-        bash {project}/ci/install_libspatialindex.bash
+        bash ./ci/install_libspatialindex.bash
     - name: Build wheels
       uses: pypa/cibuildwheel@v2.11.2
       env:
