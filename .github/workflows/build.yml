@@ -25,16 +25,13 @@ jobs:
       name: Set up QEMU
       with:
         platforms: arm64
-    - name: Install libspatialindex
-      run: |
-        pip install cmake
-        bash ./ci/install_libspatialindex.bash
     - name: Build wheels
       uses: pypa/cibuildwheel@v2.11.2
       env:
         CIBW_ARCHS_LINUX: aarch64
         CIBW_TEST_REQUIRES: pytest numpy
         CIBW_TEST_COMMAND: "pytest -v {project}/tests"
+        CIBW_BEFORE_ALL_LINUX: "pip install cmake; bash {project}/ci/install_libspatialindex.bash"
     - uses: actions/upload-artifact@v3
       with:
         name: aarch64-whl
