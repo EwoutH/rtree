@@ -24,6 +24,7 @@ jobs:
       CIBW_BUILD_VERBOSITY_MACOS: 3
       CIBW_TEST_SKIP: "*-macosx_arm64 *-macosx_universal2:arm64 *-musllinux* *i686"
       CIBW_ARCHS_MACOS: "x86_64 arm64"
+      CIBW_ARCHS_WINDOWS: "AMD64 ARM64"
       CIBW_REPAIR_WHEEL_COMMAND_WINDOWS: ""
       CIBW_BEFORE_ALL_LINUX: "pip install cmake; bash {project}/ci/install_libspatialindex.bash"
       CIBW_BEFORE_ALL_WINDOWS: "pip install cmake; bash {project}/ci/install_libspatialindex.bat"
